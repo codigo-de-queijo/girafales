@@ -1,34 +1,30 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import './App.css'
+import { useState } from "react";
+import { Stack, Input, Button, Container } from '@chakra-ui/react'
+import db from "./firebase";
+import { collection, addDoc } from "firebase/firestore";
 
-function App() {
-  const [count, setCount] = useState(0)
+
+
+export default function App() {
+  const [turma, setTurma] = useState<string>("")
+
+  const register = async () => {
+    try {
+      const docRef = await addDoc(collection(db, "turmas"), {
+        turma
+      });
+      console.log("Document written with ID: ", docRef.id);
+    } catch (e) {
+      console.error("Error adding document: ", e);
+    }
+  }
 
   return (
-    <div className="App">
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src="/vite.svg" className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://reactjs.org" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </div>
+    <Container>
+      <Stack>
+        <Input onChange={(e) => setTurma(e.target.value)} placeholder='Nome da turma' size='lg' />
+        <Button onClick={register} colorScheme='blue'>Cadastrar</Button>
+      </Stack>
+    </Container>
   )
 }
-
-export default App
