@@ -26,7 +26,10 @@ export default function App() {
     const fetchData = async () => {
       const q = query(collection(db, "turmas"));
       const querySnapshot = await getDocs(q);
-      setTurmas(querySnapshot.docs.map(v => v.data()));
+
+      const data = querySnapshot.docs.map(v => v.data());
+
+      setTurmas(data.sort((a, b) => a.turma.localeCompare(b.turma)));
     };
     fetchData();
   }, [stateUpdate])
