@@ -5,7 +5,7 @@ App simples para organização de turmas e verificação de presença
 **Obervação**: Mobile first, mas deve ficar bom de usar no celular, tablet e desktop.
 
 - [x] Cadastrar turma (ex: maternal, jardim, alfabetização, etc)
-- [] Listar turmas
+- [x] Listar turmas
 - [] Cadastrar alunos
 - [] Cadastrar alunos nas turmas
 - [] Visualizar alunos nas turmas
