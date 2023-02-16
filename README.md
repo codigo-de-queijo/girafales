@@ -7,7 +7,7 @@ App simples para organização de turmas e verificação de presença
 - [x] Cadastrar turma (ex: maternal, jardim, alfabetização, etc)
 - [x] Listar turmas
 - [x] Corrigir bug ao cadastrar -> lista não é atualizada
-- [] Colocar lista em ordem alfabética
+- [x] Colocar lista em ordem alfabética
 - [] Separar App, Lista de turmas e Cadatro de turmas em componentes diferentes (app importa os outros dois)
 - [] Cadastrar alunos
 - [] Cadastrar alunos nas turmas
